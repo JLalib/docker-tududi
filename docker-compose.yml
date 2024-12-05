@@ -1,0 +1,14 @@
+#Repositorio oficial: https://github.com/chrisvel/tududi
+#Generar TUDUDI_SESSION_SECRET con este comando: openssl rand -hex 64
+services:
+    tududi:
+        environment:
+            - TUDUDI_USER_EMAIL=you@youremail.com
+            - TUDUDI_USER_PASSWORD=yourpassword
+            - TUDUDI_SESSION_SECRET= #KEY
+            - TUDUDI_INTERNAL_SSL_ENABLED=false
+        volumes:
+            - ./tududi_db:/usr/src/app/tududi_db
+        ports:
+            - 9292:9292
+        image: chrisvel/tududi:latest
